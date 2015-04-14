@@ -1,6 +1,6 @@
 # jQuery Facebook Albums Query
 
-## Demo with plugin's auto generated list
+## Demo with plugin's auto generated HTML list
 A working demo is descripted below.
 
 Suppose you have a `div` with id `facebookAlbumList` and that you want to render a list of Facebook public albums inside.
