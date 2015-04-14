@@ -1,6 +1,6 @@
 # jQuery Facebook Albums Plugin
 
-A working example is reported below:
+A working demo is descripted below.
 
 Suppose you have a `div` with id `facebookAlbumList` and that you want to render a list of Facebook public albums inside.
 ```html
@@ -40,6 +40,30 @@ In this example, there is also a callback binded on the `on_action_end` event: t
 				.find("a.fb-album-anchor").each(function(){ 
 					$(this).attr("href", "/albums/542374155817751");
 				});
+		}
+	});
+}(jQuery));
+```
+
+Instead of using an already existing DOM object and use the default HTML rendering done by the plugin, you can also query albums and do what you want with the response object inside the `on_action_end` callback.
+
+```javascript
+(function($) {
+	$.facebookAlbumQuery({
+		fb_album_ids: <?php echo $this->serialized_ids; ?>,
+		on_action_end: function(albums) {
+			$td = $("#adminForm td");
+			$console = $("#adminForm .console");				
+			
+			$.each(albums, function(k,v) {									
+				$td.filter("#name-"+v.fb_album_id).html("<a target=\"_blank\" href=\""+v.fb_url+"\"><h4>"+v.name+"</h4></a>");
+				$td.filter("#likes-"+v.fb_album_id).html(v.likes_count);
+				$td.filter("#numphotos-"+v.fb_album_id).html(v.photo_count);
+				$td.filter("#coverpicture-"+v.fb_album_id).html("<img src=\""+v.cover_photo_picture+"\" />");
+			});
+			
+			$console.find(".message").html("<?php echo JText::_('COM_FBALBUMS_CONSOLE_INFORMATION_RETRIVED'); ?>");
+			$console.find(".loader").toggleClass('hidden');
 		}
 	});
 }(jQuery));
