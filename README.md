@@ -59,6 +59,7 @@ Instead of using an already existing DOM object and use the default HTML renderi
 			$.each(albums, function(k,v) {
 				// this adds the album name, using the property name
 				$td.filter("#name-"+v.fb_album_id).html("<a target=\"_blank\" href=\""+v.fb_url+"\"><h4>"+v.name+"</h4></a>");
+				
 				// this adds the likes count
 				$td.filter("#likes-"+v.fb_album_id).html(v.likes_count);
 				
