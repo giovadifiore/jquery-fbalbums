@@ -4,7 +4,7 @@
 *
 * - Filename: jquery.fbalbumreader-0.1.js
 * - Creation date: 11/02/14
-* - Site name: ammot.it
+* - Version: 0.1
 * - Author: Giovanni Di Fiore
 * - Email: giovadf@gmail.com
 *
