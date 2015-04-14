@@ -1,5 +1,6 @@
-# jQuery Facebook Albums Plugin
+# jQuery Facebook Albums Query
 
+## Demo with plugin's auto generated list
 A working demo is descripted below.
 
 Suppose you have a `div` with id `facebookAlbumList` and that you want to render a list of Facebook public albums inside.
@@ -45,6 +46,7 @@ In this example, there is also a callback binded on the `on_action_end` event: t
 }(jQuery));
 ```
 
+## Demo of an album query without an existing DOM object
 Instead of using an already existing DOM object and use the default HTML rendering done by the plugin, you can also query albums and do what you want with the response object inside the `on_action_end` callback.
 
 ```javascript
