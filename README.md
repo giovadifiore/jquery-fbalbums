@@ -13,38 +13,35 @@ In this example, there is also a callback binded on the `on_action_end` event: t
 ```javascript
 // populate fields
 (function($) {
-	$(document).ready(function() {
-	
-		$("#facebookAlbumList").facebookAlbumList({
-			fb_album_ids: ["194952257226611","515744411814059","524241640964336","542374155817751"],
-			imgcontainer_class	: "fb-album-imagecontainer image-panel",
-			img_class		: "fb-album-img image-to-resize",
-			on_action_end		: function(albums) {				
-				$li		= $(".fb-album-element");
-			
-				// now attach anchors
-				$li
-  					.filter("[data-fbid=\"194952257226611\"]")
-  					.find("a.fb-album-anchor").each(function(){ 
-  						$(this).attr("href", "/albums/194952257226611");
-  					});
-				$li
-					.filter("[data-fbid=\"515744411814059\"]")
-					.find("a.fb-album-anchor").each(function(){ 
-						$(this).attr("href", "/albums/515744411814059");
-					});
-				$li
-					.filter("[data-fbid=\"524241640964336\"]")
-					.find("a.fb-album-anchor").each(function(){ 
-						$(this).attr("href", "/albums/524241640964336");
-					});
-				$li
-					.filter("[data-fbid=\"542374155817751\"]")
-					.find("a.fb-album-anchor").each(function(){ 
-						$(this).attr("href", "/albums/542374155817751");
-					});
-			}
-		});
+	$("#facebookAlbumList").facebookAlbumList({
+		fb_album_ids: ["194952257226611","515744411814059","524241640964336","542374155817751"],
+		imgcontainer_class	: "fb-album-imagecontainer image-panel",
+		img_class		: "fb-album-img image-to-resize",
+		on_action_end		: function(albums) {				
+			$li		= $(".fb-album-element");
+		
+			// now attach anchors
+			$li
+  				.filter("[data-fbid=\"194952257226611\"]")
+  				.find("a.fb-album-anchor").each(function(){ 
+  					$(this).attr("href", "/albums/194952257226611");
+  				});
+			$li
+				.filter("[data-fbid=\"515744411814059\"]")
+				.find("a.fb-album-anchor").each(function(){ 
+					$(this).attr("href", "/albums/515744411814059");
+				});
+			$li
+				.filter("[data-fbid=\"524241640964336\"]")
+				.find("a.fb-album-anchor").each(function(){ 
+					$(this).attr("href", "/albums/524241640964336");
+				});
+			$li
+				.filter("[data-fbid=\"542374155817751\"]")
+				.find("a.fb-album-anchor").each(function(){ 
+					$(this).attr("href", "/albums/542374155817751");
+				});
+		}
 	});
 }(jQuery));
 ```
