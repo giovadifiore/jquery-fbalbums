@@ -50,20 +50,24 @@ Instead of using an already existing DOM object and use the default HTML renderi
 ```javascript
 (function($) {
 	$.facebookAlbumQuery({
-		fb_album_ids: <?php echo $this->serialized_ids; ?>,
+		fb_album_ids: ["__FACEBOOK_ALBUM_ID_HERE__"],
 		on_action_end: function(albums) {
-			$td = $("#adminForm td");
-			$console = $("#adminForm .console");				
+		
+			// suppose you have a table and td element with ids as below:
+			$td = $("#exampleTable td");				
 			
-			$.each(albums, function(k,v) {									
+			$.each(albums, function(k,v) {
+				// this adds the album name, using the property name
 				$td.filter("#name-"+v.fb_album_id).html("<a target=\"_blank\" href=\""+v.fb_url+"\"><h4>"+v.name+"</h4></a>");
+				// this adds the likes count
 				$td.filter("#likes-"+v.fb_album_id).html(v.likes_count);
+				
+				// this adds the number of pictures inside the album
 				$td.filter("#numphotos-"+v.fb_album_id).html(v.photo_count);
+				
+				// this adds the src of the album's cover picture
 				$td.filter("#coverpicture-"+v.fb_album_id).html("<img src=\""+v.cover_photo_picture+"\" />");
 			});
-			
-			$console.find(".message").html("<?php echo JText::_('COM_FBALBUMS_CONSOLE_INFORMATION_RETRIVED'); ?>");
-			$console.find(".loader").toggleClass('hidden');
 		}
 	});
 }(jQuery));
