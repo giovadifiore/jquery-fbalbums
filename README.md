@@ -46,7 +46,7 @@ In this example, there is also a callback binded on the `on_action_end` event: t
 }(jQuery));
 ```
 
-## Demo of an album query without an existing DOM object
+## Querying albums directly
 Instead of using an already existing DOM object and use the default HTML rendering done by the plugin, you can also query albums and do what you want with the response object inside the `on_action_end` callback.
 
 ```javascript
